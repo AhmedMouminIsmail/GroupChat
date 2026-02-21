@@ -86,15 +86,27 @@ function computerStyle() {
 function CHOOSE() {
     let userType = document.getElementById("userbar");
 
+    if (userType.value === "//clear//admin//") {
+        fetch(URL)
+            .then(res => res.json())
+            .then(data => {
+                data.forEach(message => {
+                    fetch(URL + `/${message.id}`, { method: "DELETE" });
+                });
+            });
+        return;
+    }
+
     if (userType.value.trim() === "") {
         return;
-    } else if (userType.value.length > 20) {
-        return;
-    } else {
-        localStorage.setItem("username", `${userType.value}`)
-        username = userType.value;
-        document.getElementById("userCurrent").innerText = username
     }
+    if (userType.value.length > 20) {
+        return;
+    }
+
+
+    username = userType.value;
+    document.getElementById("userCurrent").innerText = username
 
     const modal = document.getElementById("use");
     modal.close();
@@ -120,6 +132,7 @@ function send() {
         chat.innerHTML += `\n${username}: ${typingBar.value}`;
     } else { console.log("The message should say something :(") }
 }
+
 
 // fetch the messages
 
