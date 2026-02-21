@@ -60,3 +60,7 @@ dialog::backdrop {
 .online {
     animation: blinking 5s ease-in-out infinite;
 }
+
+input, select, textarea {
+    font-size: 16px;
+}
