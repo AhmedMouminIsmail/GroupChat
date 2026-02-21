@@ -1,0 +1,59 @@
+.chat {
+    width: 300px;
+    resize: none;
+    border: solid black;
+    border-radius: 10px;
+    box-shadow: 5px 5px 1px black;
+    height: 350px;
+}
+
+.typingBar {
+    border: solid black;
+    box-shadow: 2px 2px 1px black;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.sendBtn {
+    border: solid black;
+    box-shadow: 2px 2px 1px;
+    border-radius: 5px;
+}
+
+.sendBtn:active {
+    opacity: 0.5;
+}
+
+.sendLogo {
+    height: 30px;
+    padding: 5px;
+}
+
+.body::-webkit-scrollbar {
+    display: none;
+}
+
+.boxChat {
+    display: flex;
+    gap: 10px;
+}
+
+dialog::backdrop {
+    backdrop-filter: blur(4px);
+}
+
+@keyframes blinking {
+    0% {
+        background-color: green;
+    }
+    50% {
+        background-color: rgb(28, 233, 28);
+    }
+    100% {
+        background-color: green;
+    }
+}
+
+.online {
+    animation: blinking 5s ease-in-out infinite;
+}
